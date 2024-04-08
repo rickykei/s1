@@ -1072,7 +1072,7 @@ function importAmazon($db, $file_name, $actual_file_name, $salesGroup) {
 		
 		$order['order_date'] = date('Y-m-d');
 		$order['sale_group'] = $salesGroup;
-		$order['sale_name'] = convert($ws->getCell("I".$rowNo)->getValue());
+		$order['sale_name'] = convert($ws->getCell("Q".$rowNo)->getValue());
 		$order['sale_ship_fee'] = 0;
 	
 		$order['sale_email'] = '';
@@ -1114,7 +1114,11 @@ function importAmazon($db, $file_name, $actual_file_name, $salesGroup) {
 		$debt['debt_shipping_method'] = 'Air Mail';
 		$debt['debt_email_sent'] = NULL;
 		
-		 
+		 		// Remarks
+		$remark = $ws->getCell("AG".$rowNo)->getValue();
+
+$debt['debt_remark']=$remark;
+
 	 
 	/** Balance */
 	 
