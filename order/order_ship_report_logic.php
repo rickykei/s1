@@ -127,12 +127,13 @@ function getShipReportData($access,$user_name,$group3,$prod_id) {
 		$data['realstock']=$realStock;
 		
 		
-		$query = "SELECT sagawa_label,sagawa_label1,sagawa_label2,person_in_charge FROM product where product_id='$prod_no'";
+		$query = "SELECT sagawa_label,sagawa_label1,sagawa_label2,sagawa_label3,person_in_charge FROM product where product_id='$prod_no'";
 		$result2 = mysql_query($query, $db) or die (mysql_error()."<br />Couldn't execute query: $query");
 		$row2=mysql_fetch_array($result2);
 		$data['sagawa_label']= $row2["sagawa_label"];
 		$data['sagawa_label1']= $row2["sagawa_label1"];
 		$data['sagawa_label2']= $row2["sagawa_label2"];
+		$data['sagawa_label3']= $row2["sagawa_label3"];
 		$data['person_in_charge'] = $row2["person_in_charge"];
 		$data_list[] = $data;
 	}

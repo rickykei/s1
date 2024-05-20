@@ -254,6 +254,7 @@ $error_msg = '';
 					sagawa_label= '$sagawa_label',
 					sagawa_label1= '$sagawa_label1',
 					sagawa_label2= '$sagawa_label2',
+					sagawa_label3= '$sagawa_label3',
 					fix_inventory_qty='$fix_inventory_qty',
 					searchable='$searchable'
 					";

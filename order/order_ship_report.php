@@ -107,6 +107,7 @@
 					<? if ($row['sagawa_label']=='Y') { ?>(&#10045;&#10045;)<? } ?>
 					<? if ($row['sagawa_label2']=='Y') { ?>(&#10045;3&#10045;)<? } ?>
 					<? if ($row['sagawa_label1']=='Y') { ?>(&#10045;1&#10045;)<? } ?>
+					<? if ($row['sagawa_label3']=='Y') { ?>(&#10045;4&#10045;)<? } ?>
 					<a href='index.php?page=order&subpage=edit&sale_ref=<?=$row['bal_ref'] ?>'><?=$row['sprod_id'] ?></a>
 					</td>
 					<td><?=$row['person_in_charge'] ?>&nbsp;</td>

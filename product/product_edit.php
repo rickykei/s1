@@ -270,6 +270,14 @@ echo $disply_photo;
                     		<option value="N" <? if ($getprod_row['sagawa_label2'] == 'N'){echo "selected";}?>>No</option>
                     	</select></td>
                       </tr>
+					     <tr>
+                        <td>Special Product 4</td>
+                        <td><select name="sagawa_label3" id="sagawa_label3">
+                    		 <option value="" ></option>
+                    		<option value="Y" <? if ($getprod_row['sagawa_label3'] == 'Y'){echo "selected";}?>>Yes</option>
+                    		<option value="N" <? if ($getprod_row['sagawa_label3'] == 'N'){echo "selected";}?>>No</option>
+                    	</select></td>
+                      </tr>
 					    <tr>
                       	<td>Searchable</td>
                       <td> <select name="searchable" id="searchable">
