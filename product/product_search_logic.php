@@ -32,7 +32,9 @@ if (isset($isfind)) {
 	if (isset($sagawa_label2) && $sagawa_label2 != '') {
 		$sql = $sql." and sagawa_label2 like '$sagawa_label2'";
 	}
-	
+		if (isset($sagawa_label3) && $sagawa_label3 != '') {
+		$sql = $sql." and sagawa_label3 like '$sagawa_label3'";
+	}
 	if (isset($sagawa_label1) && $sagawa_label1 != '') {
 		$sql = $sql." and sagawa_label1 like '$sagawa_label1'";
 	}

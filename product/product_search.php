@@ -293,6 +293,14 @@
                     		<option value="N">No</option>
                     	</select> </td>
 				  </tr>
+				  <tr>
+				  <td>Special Product 4</td>
+				  <td><select name="sagawa_label3" id="sagawa_label3">
+                    		 <option value="">All</option>
+                    		<option value="Y">Yes</option>
+                    		<option value="N">No</option>
+                    	</select> </td>
+				  </tr>
             </table>
             <input name="isfind" type="submit" id="isfind" value="Find" />
             
