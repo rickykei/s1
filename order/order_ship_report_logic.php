@@ -59,7 +59,7 @@ else {$sale_name='';
 	echo "</table>";
 } */
 
-function getShipReportData($access,$user_name,$group3,$prod_id) {
+function getShipReportData($access,$user_name,$group3,$prod_id,$realStockzero) {
 	$db=connectDatabase();
 	mysql_select_db(DB_NAME,$db);
 	
@@ -97,6 +97,9 @@ function getShipReportData($access,$user_name,$group3,$prod_id) {
 	//20180819
 	if ($prod_id!="")
 	$query =$query. "  and ben_sale_prod.sprod_id in ('$prod_id') ";
+
+	
+
 	$query =$query. " order by bal_dat asc ";
 	
 	//echo $query;
@@ -108,6 +111,21 @@ function getShipReportData($access,$user_name,$group3,$prod_id) {
 	{
 		$row=mysql_fetch_array($result);
 		
+		
+		$realStock=getRealStockByItemArray($row["sprod_id"]);
+		
+		 
+		//+ realstockzero flag 20240527
+		if($realStock==0)
+		{
+			if ($realStockzero==1)
+				break;
+		}
+		else if($realStock>0)
+		{
+			if ($realStockzero==0)
+				break;
+		}	
 		$data = array();
 		
 		$data['sprod_no'] = $row['sprod_no'];
@@ -123,7 +141,7 @@ function getShipReportData($access,$user_name,$group3,$prod_id) {
 		
 		
 		//get RealStock 20180729
-		$realStock=getRealStockByItemArray($row["sprod_id"]);
+		//$realStock=getRealStockByItemArray($row["sprod_id"]);
 		$data['realstock']=$realStock;
 		
 		
@@ -147,7 +165,7 @@ function getShipReportData($access,$user_name,$group3,$prod_id) {
 	return $data_list;
 }
 
-function getShipReport2($date_start,$date_end,$access,$user_name,$prod_id)
+function getShipReport2($date_start,$date_end,$access,$user_name,$prod_id,$realStockzero)
 {
 	$db=connectDatabase();
 	mysql_select_db(DB_NAME,$db);
@@ -227,6 +245,18 @@ function getShipReport2($date_start,$date_end,$access,$user_name,$prod_id)
 
 			//get RealStock 20180729
 		$realStock=getRealStockByItemArray($sprod_id);
+		
+			//+ realstockzero flag 20240527
+		if($realStock==0)
+		{
+			if ($realStockzero==1)
+				break;
+		}
+		else if($realStock>0)
+		{
+			if ($realStockzero==0)
+				break;
+		}	
 		
 			//get person_in_charge 20180805
 			

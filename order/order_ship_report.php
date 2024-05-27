@@ -21,6 +21,11 @@
 
 		<input name="prod_id" type="text" id="prod_id" value="<?=$prod_id?>">
 	<br>
+	<select name="realstockzero" id="realstockzero">
+	<option value='' selected></option>
+	<option value='0'>=0</option>
+	<option value='1'>>0</option>
+	</select>
 						</td>
 						</tr>
                   <!----//      <tr>
@@ -77,7 +82,7 @@
 			  $prod_id_arr=explode(',',$prod_id);
 			  $prod_id = join("','",$prod_id_arr);   
 			  
-			  $rows = getShipReportData($group2, $user_name,'JP',$prod_id); ?>
+			  $rows = getShipReportData($group2, $user_name,'JP',$prod_id,$realstockzero); ?>
 
               <table width="600" border="1" cellspacing="0" cellpadding="0">
               	<tr align="right" valign="top">
@@ -138,7 +143,7 @@
 
               <? //getShipReport($group2, $user_name,'HK'); ?>
 
-              <? $rows = getShipReportData($group2, $user_name,'HK',$prod_id); ?>
+              <? $rows = getShipReportData($group2, $user_name,'HK',$prod_id,$realstockzero); ?>
 
               <table width="600" border="1" cellspacing="0" cellpadding="0">
               	<tr align="right" valign="top">
@@ -197,13 +202,13 @@ $today = date("Y-m-d");
 
 $today_10 = date("Y-m-d", mktime(0,0,0,date("m"),date("d")-180,date("Y")));
 
-getShipReport2($today_10,$today,$group2, $user_name,$prod_id);
+getShipReport2($today_10,$today,$group2, $user_name,$prod_id,$realstockzero);
 
 }
 
 else
 
-{getShipReport2($_GET['date_start'],$_GET['date_end'],$group2, $user_name,$prod_id);
+{getShipReport2($_GET['date_start'],$_GET['date_end'],$group2, $user_name,$prod_id,$realstockzero);
 
 } ?></td>
 
