@@ -60,6 +60,9 @@ else {$sale_name='';
 } */
 
 function getShipReportData($access,$user_name,$group3,$prod_id,$realStockzero) {
+	echo "getShipReportData".$group3;
+	echo "realStockzero=".$realStockzero;
+	
 	$db=connectDatabase();
 	mysql_select_db(DB_NAME,$db);
 	
@@ -116,15 +119,19 @@ function getShipReportData($access,$user_name,$group3,$prod_id,$realStockzero) {
 		
 		 
 		//+ realstockzero flag 20240527
-		if($realStock==0)
+		if($realStock<=0)
 		{
-			if ($realStockzero==1)
-				break;
+			if ($realStockzero=='B'){
+				 
+				continue;
+			}
 		}
 		else if($realStock>0)
 		{
-			if ($realStockzero==0)
-				break;
+			if ($realStockzero=='A'){
+				 
+				continue;
+			}
 		}	
 		$data = array();
 		
@@ -247,15 +254,19 @@ function getShipReport2($date_start,$date_end,$access,$user_name,$prod_id,$realS
 		$realStock=getRealStockByItemArray($sprod_id);
 		
 			//+ realstockzero flag 20240527
-		if($realStock==0)
+		if($realStock<=0)
 		{
-			if ($realStockzero==1)
-				break;
+			if ($realStockzero=='B'){
+				 
+				continue;
+			}
 		}
 		else if($realStock>0)
 		{
-			if ($realStockzero==0)
-				break;
+			if ($realStockzero=='A'){
+				 
+				continue;
+			}
 		}	
 		
 			//get person_in_charge 20180805

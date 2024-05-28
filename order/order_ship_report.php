@@ -23,8 +23,9 @@
 	<br>
 	<select name="realstockzero" id="realstockzero">
 	<option value='' selected></option>
-	<option value='0'>=0</option>
-	<option value='1'>>0</option>
+	<option value='A'><=0</option>
+	<option value='B'>>0</option>
+	
 	</select>
 						</td>
 						</tr>
@@ -143,7 +144,7 @@
 
               <? //getShipReport($group2, $user_name,'HK'); ?>
 
-              <? $rows = getShipReportData($group2, $user_name,'HK',$prod_id,$realstockzero); ?>
+              <? $rows = getShipReportData($group2, $user_name,'HK',$prod_id,'Z'); ?>
 
               <table width="600" border="1" cellspacing="0" cellpadding="0">
               	<tr align="right" valign="top">
