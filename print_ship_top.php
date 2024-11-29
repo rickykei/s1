@@ -41,8 +41,8 @@ sqlinsert($sqla);
 
 <!-- Begin
 function myprint() {
-window.parent.frame1.focus();
-window.print();
+window.top.frame1.focus();
+window.top.frame1.print();
 
 }
 //  End -->

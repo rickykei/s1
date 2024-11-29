@@ -1,0 +1,241 @@
+File Update History:
+28-jun-2012 user request
+/order/order_add.php 
+
+15-May-2012
+/zmigration/20120515
+config.php
+functions.php DONE
+order_find_product.php DONE
+order/order_add.php DONE
+order/order_batch_tracking_no.php NEW DONE
+order/order_batch_tracking_no_logic.php  NEW DONE
+order/order_csv.php DONE
+order/order_edit.php DONE
+order/order_js.php DONE
+order/order_list.php DONE
+order/order_list_logic.php DONE
+order/order_shipping.php DONE
+product/product_upload.php NEW DONE
+product/product_upload_logic.php NEW DONE
+stock/stock_in_add.php DONE
+stock/stock_in_edit.php DONE
+stock/stock_out_add.php DONE
+stock/stock_out_edit.php DONE
+
+
+30-Apr-2012
+Enhancement: Change shpping printout layout of JP Post Code & JP Post Paid
+customerXml.php
+productCustXml.php
+print_ship_bottom_jp_post_cod.php
+print_ship_bottom_jp_post_paid.php
+
+
+31-Mar-2012
+functions.php
+order_find_product.php
+customer/customer_del_logic.php
+customer/customer_list.php
+customer/customer_maint.php
+customer/customer_maint_logic.php
+invoice/invoice_js.php
+order/order_add.php
+order/order_edit_logic.php
+order/order_edit.php
+order/order_js.php
+product/product_add.php
+product/product_add_logic.php
+product/product_del_logic.php
+product/product_edit.php
+product/product_edit_lo
+DB also has changed
+invocie updated
+1. Ajax in input box "Cust. Code"
+2. Set default value of "Sales Code" & "Sales Name" to be username
+
+28-Feb-2012
+****************************************************************
+Enhancement: Make Maintenance
+****************************************************************
+product/product_make_del_logic.php
+product/product_make_edit.php
+product/product_make_edit_logic.php
+product/product_model_list.php
+product/product_model_list_logic.php
+
+
+21-Feb-2012
+****************************************************************
+Enhancement: Sales group's specific market price for order
+****************************************************************
+functions.php
+order_find_product.php
+order/order_add.php
+order/order_add_logic.php
+order/order_edit.php
+product/product_add.php
+product/product_add_logic.php
+product/product_edit.php
+product/product_edit_logic.php
+
+17-Feb-2012
+****************************************************************
+Enhancement: Customer List (Split the address column)
+****************************************************************
+customer/customer_list.php
+customer/customer_list_logic.php
+
+16-Feb-2012
+****************************************************************
+Enhancement: Customer Maintenance
+Bug fix: Fail to generate order cvs
+****************************************************************
+functions.php
+page_header.php
+index.php
+main.php
+customer/*
+order/order_add.php
+order/order_add_logic.php
+order/order_csv.php
+
+12-Feb-2012
+****************************************************************
+Enhancement: Model & Model No. mapping and maintenance
+****************************************************************
+functions.php
+product/product_add.php
+product/product_add_js.php
+product/product_edit.php
+product/product_edit_js.php
+product/product_model_del_logic.php
+product/product_model_edit.php
+product/product_model_edit_logic.php
+product/product_model_list.php
+product/product_model_list_logic.php
+product/product_model_mapping.php
+product/product_model_mapping_logic.php
+product/product_model_no_del_logic.php
+product/product_model_no_edit.php
+product/product_no_edit_logic.php
+product/searchModelNo.php
+
+09-Feb-2012
+****************************************************************
+Section : order.sent report
+modify csv export
+add field prod id
+add field order total price
+add field order cost total 
+fix 1 order to M items problem
+****************************************************************
+order/order_sent_report_logic.php
+order/order_sent_report_csv.php
+
+
+06-Feb-2012
+****************************************************************
+Ad-hoc: Order -> upload jp tracking_no
+Change the status to "A" if uploaded tracking no has already existed in DB
+Enhancement: Order -> Sent Report
+New columns in CSV
+****************************************************************
+order/order_upload_jp_tracking_no_logic.php
+
+05-Feb-2012
+****************************************************************
+Enhancement: Order -> Sent Report
+New search criteria
+Generate invoice PDF
+****************************************************************
+functions.php
+tcpdf/*
+order/order_sent_report.php
+order/order_sent_report_logic.php
+order/order_sent_report_pdf.php
+
+01-Feb-2012
+****************************************************************
+Bug Fix: Report -> Order Report
+Handle the case multiple products for 1 order
+****************************************************************
+print_report_bottom.php
+report/report_list_logic.php
+
+29-Jan-2012
+****************************************************************
+Enahance Product Search
+Add column "Cost (RMB)"
+****************************************************************
+functions.php
+order/order_sent_report.php
+order/order_sent_report_csv.php
+order/order_sent_report_logic.php
+product/product_del_logic.php
+product/product_list.php
+product/product_list_logic.php
+product/product_search.php
+product/product_serach_js.php
+product/product_search_logic.php
+product/searchModel.php
+
+28-Jan-2012
+****************************************************************
+Report->Order Report
+Report->Items Sold
+Add new column "Cost(RMB)"
+****************************************************************
+report/report_list_logic.php
+report/report_prod_logic.php
+report/report_prod_csv.php
+report/report_prod.php
+stock/stock_csv.php
+
+23-Jan-2012
+****************************************************************
+Bug Fix: Generate CSV
+****************************************************************
+invoice/invoice_csv.php
+po/po_csv.php
+report_inventory/report_inventory_csv.php
+return/return_list.csv.php
+
+
+28-Aug-2011
+-------------------------------
+updated order subpage menu bar for trackingno and container page
+-------------------------------
+uat:functions.php->prd:
+
+27-Aug-2011
+****************************************************************
+Add container maintenance page
+Upload JP tracking no by importing excel file
+Upload container by importing excel file
+Provide JP Tracking Dropdown in Shipping
+Fail to connect DB in Demo & fix the link of "Administrator Tool" & "Main Page"
+****************************************************************
+order/order_container_edit.php
+order/order_container_edit_logic.php
+order/order_shipping.php
+order/order_shipping_logic.php
+order/order_upload_container.php
+order/order_upload_container_logic.php
+order/order_upload_jp_tracking_no.php
+order/order_upload_jp_tracking_no_logic.php
+page_header.php
+productStockXml.php
+productxml.php
+
+New Table: jp_tracking_no, container
+
+
+18-Jul-2011
+****************************************************************
+New CSV function in [Order] page
+****************************************************************
+/Classes
+/order/order_csv.php
+/order/order_list_logic.php
+/order/order_list.php

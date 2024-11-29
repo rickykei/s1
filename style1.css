@@ -2,7 +2,7 @@ P {
 	FONT-SIZE: 11px; FONT-FAMILY: Tahoma
 }
 TD {
-	FONT-SIZE: 11px; FONT-FAMILY: Tahoma
+	FONT-SIZE: 11px; FONT-FAMILY: Tahoma;
 }
 FONT {
 	FONT-SIZE: 11px; FONT-FAMILY: Tahoma
@@ -23,7 +23,7 @@ A {
 	FONT-SIZE: 18px; TEXT-DECORATION: none
 }
 .cat {
-	FONT-SIZE: 16px
+	FONT-SIZE: 16px;padding: 5px;
 }
 .standard {
 	FONT-WEIGHT: normal
