@@ -10,7 +10,15 @@
 
 		<input name="prod_id" type="text" id="prod_id" value="<?=$prod_id?>">
 	<br> 
-		RealStock:
+		product_made:
+		 <input name="product_made" type="text" id="product_made" value="<?=$product_made?>">
+		<br>
+		
+		product_model:
+		 <input name="product_model" type="text" id="product_model" value="<?=$product_model?>">
+		<br>
+		
+		Real Stock 0 to ? :
 		 <input name="real_stock" type="text" id="real_stock" value="<?=$real_stock?>">
 		<br>
 
@@ -59,7 +67,9 @@
 			&nbsp;</td>
 
 		</tr>
-
+		<tr>
+		 
+		</tr>
 		</table>
 
 		<br> 
@@ -103,7 +113,7 @@
 		for ($i = 0; $i < $prod_n; $i++) {
 
 		$realStock=$sprod_stockbal[$i]-$sprod_shipAfter14[$i]+$sprod_fix_inventory_qty[$i];
-		if($realStock==$real_stock || $real_stock==''){
+		if($realStock<=$real_stock && $real_stock>0 ){
 		?>
         <tr valign="top">
 			<td ><?=$j+1?></td>

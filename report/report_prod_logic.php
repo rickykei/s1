@@ -8,7 +8,7 @@ if ((isset($_POST['prod_id']) || isset($_POST['prod_name'])) and ($_POST['prod_i
 	$db=connectDatabase();
 	
 	mysql_select_db(DB_NAME,$db);
-	$result =  mysql_query("SELECT * FROM ben_sale, ben_sale_prod left outer join product on ben_sale_prod.sprod_id = product.product_id where sprod_ref=sale_ref and sprod_id like '$prod_id%' and sprod_name like '%$prod_name%'" ,$db);
+	$result =  mysql_query("SELECT * FROM ben_sale, ben_sale_prod left outer join product on ben_sale_prod.sprod_id = product.product_id where sprod_ref=sale_ref  and (sale_date between '$date_start' and '$date_end') and sprod_id like '$prod_id%' and sprod_name like '%$prod_name%'" ,$db);
 
 	$num_results=mysql_num_rows($result);
 	$prod_n = $num_results;
@@ -45,10 +45,10 @@ else if (isset($_POST['date_start']) and isset($_POST['search_date'])) {
  
 	mysql_select_db(DB_NAME,$db);
 	if ($sprod_top == "1") {
-		$result =  mysql_query("SELECT *, sum(sprod_unit) as counter FROM ben_sale, ben_sale_prod left outer join product on ben_sale_prod.sprod_id = product.product_id where sale_ref=sprod_ref and (sale_date between '$date_start' and '$date_end') group by sprod_id order by counter desc limit 0, $sprod_select  " ,$db);
+		$result =  mysql_query("SELECT *, sum(sprod_unit) as counter FROM ben_sale, ben_sale_prod left outer join product on ben_sale_prod.sprod_id = product.product_id where sale_ref=sprod_ref  and sprod_id like '$prod_id%' and (sale_date between '$date_start' and '$date_end') group by sprod_id order by counter desc limit 0, $sprod_select  " ,$db);
 	}
 	else {
-		$result =  mysql_query("SELECT *, sprod_unit as counter FROM ben_sale, ben_sale_prod left outer join product on ben_sale_prod.sprod_id = product.product_id where sale_ref=sprod_ref and (sale_date between '$date_start' and '$date_end')" ,$db);
+		$result =  mysql_query("SELECT *, sprod_unit as counter FROM ben_sale, ben_sale_prod left outer join product on ben_sale_prod.sprod_id = product.product_id where sale_ref=sprod_ref and sprod_id like '$prod_id%'  and (sale_date between '$date_start' and '$date_end')" ,$db);
 	}
 	$num_results=mysql_num_rows($result);
 	
@@ -68,7 +68,7 @@ else if (isset($_POST['date_start']) and isset($_POST['search_date'])) {
 		$sale_dat[$i]=$row["sale_dat"];
 		$sprod_cost_rmb[$i]=$row["product_cost_rmb"];
 		  
-		$total_price += $sprod_price[$i];
+		$total_price += $sprod_price[$i] * $sprod_unit[$i];
 		$total_unit += $sprod_unit[$i];
 	}
 }
