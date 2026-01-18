@@ -113,7 +113,7 @@
 		for ($i = 0; $i < $prod_n; $i++) {
 
 		$realStock=$sprod_stockbal[$i]-$sprod_shipAfter14[$i]+$sprod_fix_inventory_qty[$i];
-		if($realStock<=$real_stock && $real_stock>0 ){
+		if($real_stock=='' ||  $realStock<=$real_stock && $realStock>0 ){
 		?>
         <tr valign="top">
 			<td ><?=$j+1?></td>
